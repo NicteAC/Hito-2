@@ -133,3 +133,17 @@ const eGridDiv = document.getElementById("myGrid");
 // new grid instance, passing in the hosting DIV and Grid Options
 new agGrid.Grid(eGridDiv, gridOptions);
 gridOptions.api.setRowData(orderData);
+
+(async () => {
+  const loader = document.getElementById("loader2");
+  loader.innerHTML += `
+  <div class="loader">
+    <div class="spinner-border text-info" role="status">
+     <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+`;
+  setTimeout(() => {
+    $("#loader2").toggle();
+  }, 1000);
+})();

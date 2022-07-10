@@ -25,3 +25,16 @@ export const changeButton = () => {
   </button>
   `;
 };
+ export const loadingSpinner = () =>{
+  const loader = document.getElementById("loader");
+  loader.innerHTML += `
+  <div class="loader">
+    <div class="spinner-border text-info" role="status">
+     <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+`;
+  setTimeout(() => {
+    $("#loader").toggle();
+  }, 6000);
+ }

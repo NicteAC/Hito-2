@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <!-- Chart.js CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css"
@@ -18,12 +20,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Font awesome para icono covid -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
       integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5"
       crossorigin="anonymous"
     />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/app.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="navbar">
@@ -50,51 +55,62 @@
                 >USA</a
               >
             </li>
-            <li class="nav-item d-none" id="close-sesion" >
-              <button type="button" id="close" class="btn btn-outline-light ms-2">Cerrar Sesión</button>
+            <li class="nav-item d-none" id="close-sesion">
+              <button
+                type="button"
+                id="close"
+                class="btn btn-outline-light ms-2"
+              >
+                Cerrar Sesión
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <section>
-      <h1 class="my-3 text-center">Historial USA <i class="fa-solid fa-virus-covid"></i></h1>
+      <h1 class="my-3 text-center">
+        Historial USA <i class="fa-solid fa-virus-covid"></i>
+      </h1>
       <div class="container mt-5">
-       <div class="row justify-content-center align-items-center">
-        <div class="col-md-4">
-          <form id="js-form">
-            <h1 class="modal-title" id="exampleModalLabel">Inicia sesión</h1>
-            <div class="mb-3">
-              <label for="js-input-email">Email:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="js-input-email"
-                aria-describedby="emailHelp"
-                placeholder="Ingresa tu email"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="js-input-password" class="col-form-label"
-                >Password:
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="js-input-password"
-                placeholder="Ingresa tu contraseña"
-              />
-            </div>
-            <div id="loading"></div>
-            <button type="submit" id="button" class="btn btn-primary">Enviar</button>
-          </form>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-4">
+            <form id="js-form">
+              <h1 class="modal-title" id="exampleModalLabel">Inicia sesión</h1>
+              <div class="mb-3">
+                <label for="js-input-email">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="js-input-email"
+                  aria-describedby="emailHelp"
+                  placeholder="Ingresa tu email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="js-input-password" class="col-form-label"
+                  >Password:
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="js-input-password"
+                  placeholder="Ingresa tu contraseña"
+                />
+              </div>
+              <div id="loading"></div>
+              <button type="submit" id="button" class="btn btn-primary">
+                Enviar
+              </button>
+            </form>
+          </div>
         </div>
-       </div>
       </div>
     </section>
     <div class="container">
-      <canvas id="myChart2" width="800" height="400"></canvas>
+      <canvas id="myChart2"></canvas>
     </div>
+    <div id="loader"></div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"
       integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA=="
@@ -111,6 +127,6 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="./assets/usa.js"></script>
+    <script type="module" src="./assets/js/usa.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { options, dataChart } from "./chart.js";
 import { getToken } from "./jwt.js";
-import { doRequest, change, changeButton } from "./request.js";
+import { doRequest, change, changeButton, loadingSpinner } from "./request.js";
 
 const form = document.getElementById("js-form");
 form.addEventListener("submit", async (e) => {
@@ -11,6 +11,7 @@ form.addEventListener("submit", async (e) => {
     const JWT = await getToken({ email, password });
     localStorage.setItem("token", JWT);
     console.log("token: " + JWT);
+    loadingSpinner()
     change();
     renderChart(JWT)    
   } catch (error) {
@@ -19,7 +20,6 @@ form.addEventListener("submit", async (e) => {
     console.error(`Error ${error}`);
   }
 });
-
 
 const boton = document.getElementById("close");
 boton.addEventListener("click", () => {
@@ -55,7 +55,9 @@ const renderChart = async(JWT) =>{
 (async () => {
   const JWT = localStorage.getItem("token");
   if (JWT) {
+    loadingSpinner()
     change();
     renderChart(JWT);
   }
 })();
+ 
