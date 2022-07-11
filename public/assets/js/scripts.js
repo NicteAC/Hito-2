@@ -18,14 +18,10 @@ tenData = fullData.slice(0, 10);
 
 tenData.forEach((element) => {
   coutriesLabels.push(element.location);
-  //dato ficticio ya que la api retorna 0
-  activeCases.push((element.active + 1) * parseInt(Math.random() * 10000000));
+  activeCases.push(element.active);
   confirmCases.push(element.confirmed);
   deathCases.push(element.deaths);
-  //dato ficticio ya que la api retorna 0
-  recoverCases.push(
-    (element.recovered + 1) * parseInt(Math.random() * 10000000)
-  );
+  recoverCases.push(element.recovered);
 });
 const ctx = document.getElementById("myChart");
 new Chart(ctx, {
@@ -85,26 +81,23 @@ const orderData = fullData.sort((a, b) => {
   }
   return 0;
 });
-// Grid Options are properties passed to the grid
+// opciones y propiedades que pasamos a la tabla
 const gridOptions = {
   // each entry here represents one column
   columnDefs: [
-    { field: "location", resizable: false },
-    { field: "confirmed", resizable: false },
-    { field: "deaths", resizable: false },
-    { field: "recovered", resizable: false },
-    { field: "active", resizable: false },
+    { field: "location" },
+    { field: "confirmed" },
+    { field: "deaths" },
+    { field: "recovered" },
+    { field: "active" },
   ],
-
   // default col def properties get applied to all columns
   defaultColDef: { sortable: true },
-
   rowSelection: "multiple", // allow rows to be selected
   animateRows: true, // have rows animate to new positions when sorted
 
-  // example event handler
+  // funcion que permite hacer click en las celdas para mostrar el grafico
   onCellClicked: (params) => {
-    console.log("cell was clicked", params.data);
     const pieChart = document.getElementById("donnut");
     if (myChartDetail instanceof Chart) {
       myChartDetail.destroy();
@@ -128,9 +121,8 @@ const gridOptions = {
   },
 };
 
-// get div to host the grid
+// variable que llama el div para imprimir la tabla
 const eGridDiv = document.getElementById("myGrid");
-// new grid instance, passing in the hosting DIV and Grid Options
+// instancia donde creamos la tabla
 new agGrid.Grid(eGridDiv, gridOptions);
 gridOptions.api.setRowData(orderData);
-

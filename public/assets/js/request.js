@@ -36,5 +36,5 @@ export const changeButton = () => {
 `;
   setTimeout(() => {
     $("#loader").toggle();
-  }, 6000);
+  }, 9000);
  }
